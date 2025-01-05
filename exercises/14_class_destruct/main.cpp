@@ -11,17 +11,22 @@ class DynFibonacci {
 
 public:
     // TODO: 实现动态设置容量的构造器
-    DynFibonacci(int capacity): cache(new ?), cached(?) {}
+    DynFibonacci(int capacity): cache(new size_t[capacity]), cached(2) {
+        this->cache[0] = 1;
+        this->cache[1] = 1;
+    }
 
     // TODO: 实现析构器，释放缓存空间
-    ~DynFibonacci();
+    ~DynFibonacci() {
+        delete[] this->cache;
+    }
 
     // TODO: 实现正确的缓存优化斐波那契计算
     size_t get(int i) {
-        for (; false; ++cached) {
-            cache[cached] = cache[cached - 1] + cache[cached - 2];
+        for (; this->cached < i; ++this->cached) {
+            this->cache[this->cached] = this->cache[this->cached - 1] + this->cache[this->cached - 2];
         }
-        return cache[i];
+        return this->cache[i-1];
     }
 };
 

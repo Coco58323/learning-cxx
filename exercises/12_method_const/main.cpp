@@ -4,8 +4,11 @@
 
 struct Fibonacci {
     int numbers[11];
+    // initialize the numbers array
+    // Fibonacci() : numbers{0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55} {}
     // TODO: 修改方法签名和实现，使测试通过
-    int get(int i) {
+    int get(int i) const {
+        return this->numbers[i];
     }
 };
 
